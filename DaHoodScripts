@@ -1,0 +1,46 @@
+if Game.PlaceId == 2788229376 then
+local Library = loadstring(game:HttpGet("https://raw.githubusercontent.com/xHeptc/Kavo-UI-Library/main/source.lua"))()
+local Window = Library.CreateLib("Toxicity", "BloodTheme")
+
+local Tab = Window:NewTab("Main")
+local Section = Tab:NewSection("Scripts")
+Section:NewButton("Aimlock", "Press E to enable", function()
+    loadstring(game:HttpGet("https://raw.githubusercontent.com/Stefanuk12/ROBLOX/master/Games/Da%20Hood/SilentAimAimLock.lua"))()
+end)
+Section:NewButton("Swag mode", "execute swag mode :D", function()
+    loadstring(game:HttpGet("https://raw.githubusercontent.com/CrystalManMan/crystacentral/main/swagnomodusers"))()
+end)
+	Section:NewButton("Crystal central", "execute Crystal cental :D. Also v To close the gui", function()
+	loadstring(game:HttpGet("https://raw.githubusercontent.com/CrystalManMan/crystacentral/main/wonder"))()
+end)
+Section:NewButton("animation changer", "Change your animation at will", function()
+	teclaopen = "M" ---Cambia la tecla, por la que gustes para cerrar la GUI
+
+	loadstring(game:HttpGet("https://god-x.000webhostapp.com/linkAnimatorEdit.lua", true))()
+end)
+
+
+local Tab = Window:NewTab("Side")
+local Section = Tab:NewSection("Side Scripts")
+Section:NewLabel("fly")
+Section:NewButton("Fly/cmdx", ";Fly to enable", function()
+    loadstring(game:HttpGet("https://raw.githubusercontent.com/CMD-X/CMD-X/master/Source"))()
+end)
+Section:NewSlider("Change Speed", "Slide to change speed!", 500, 0, function(v) -- 500 (MaxValue) | 0 (MinValue)
+    game.Players.LocalPlayer.Character.Humanoid.WalkSpeed = v
+end)
+Section:NewSlider("Change Jump height", "Slide to change jump power!", 500, 0, function(v) -- 500 (MaxValue) | 0 (MinValue)
+    game.Players.LocalPlayer.Character.Humanoid.JumpPower = v
+end)
+
+
+local Tab = Window:NewTab("Extra stuff!")
+local Section = Tab:NewSection("Extra")
+Section:NewKeybind("H to toggle UI", "Press H to hide the ui!", Enum.KeyCode.H, function()
+	Library:ToggleUI()
+end)
+for theme, color in pairs(themes) do
+    Section:NewColorPicker(theme, "Change your "..theme, color, function(color3)
+        Library:ChangeColor(theme, color3)
+    end)
+end
